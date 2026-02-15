@@ -1,0 +1,103 @@
+/* Keep the Hacker theme base styles */
+@import url("{{ "/assets/css/style.css" | relative_url }}");
+
+/* ---- Layout tweaks + top tabs ---- */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0b0f14;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.topbar__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand a {
+  color: #67ff67;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  color: #c7d1d8;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 6px;
+}
+
+.tab:hover {
+  border-color: rgba(103,255,103,0.6);
+  color: #e6f0f5;
+}
+
+.tab.is-active {
+  border-color: rgba(103,255,103,0.9);
+  color: #67ff67;
+}
+
+/* ---- Home heading ---- */
+.hero h1 {
+  margin: 1.2rem 0 0.25rem;
+}
+.hero p {
+  margin: 0 0 1.25rem;
+  color: #b6c2cb;
+}
+
+/* ---- Post grid ---- */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.post-card {
+  grid-column: span 12;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255,255,255,0.02);
+}
+
+.post-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #b6c2cb;
+  margin-bottom: 0.6rem;
+}
+
+.post-excerpt {
+  color: #d7e0e6;
+}
+
+@media (min-width: 720px) {
+  .post-card { grid-column: span 6; }
+}
+@media (min-width: 980px) {
+  .post-card { grid-column: span 4; }
+}
