@@ -1,0 +1,81 @@
+/* ── Stats Cards Stylesheet ── */
+/* Matches the enscribe.dev-inspired color scheme from index.css */
+
+.home-content {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── Card ── */
+.card {
+    background-color: var(--muted);
+    /* #2a2723 */
+    border: 1px solid var(--border);
+    /* #3d382f */
+    border-radius: 0;
+    padding: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--muted-foreground);
+    /* #a89a85 */
+}
+
+/* ── Nested card (Codeforces badge wrapper) ── */
+.card .card {
+    background-color: var(--background);
+    /* #1c1a17 */
+    border: 1px solid var(--border);
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0.75rem 1rem;
+    width: 100%;
+}
+
+/* ── Images inside cards ── */
+.card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    filter: grayscale(15%) brightness(0.95);
+    transition: filter 0.2s ease;
+}
+
+.card img:hover {
+    filter: grayscale(0%) brightness(1);
+}
+
+/* ── Override inline width=50% with responsive behavior ── */
+.card img[width="50%"] {
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .card img[width="50%"] {
+        width: calc(50% - 0.5rem);
+    }
+}
+
+/* ── Section labels (optional — add headings to cards) ── */
+.card-label {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-foreground);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+}

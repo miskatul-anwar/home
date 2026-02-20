@@ -1,42 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ghost's Portfolio</title>
+  <title> Ghost's Portfolio</title>
+  <link rel="icon" type="image/png" href="./assets/icons/geass.icon" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
   <link href="./assets/styles/index.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Include the top navigation bar -->
-  <object data="./components/top.html" type="text/html" height="5%" width="100%"></object>
-  <div class="home-content">
-    <!-- GitHub stats cards -->
-    <div class="card">
-      <img
-        src="https://activity-graph.herokuapp.com/graph?username=miskatul-anwar&theme=react-dark&hide_border=true&area=true"
-        alt="GitHub Contribution Graph for miskatul-anwar" />
-    </div>
-    <!-- Codeforces stats cards -->
-    <div class="card">
-      <div class="card" style="margin-bottom: 20px; padding: 10px; background-color: #2d2d2d; border-radius: 8px;">
-        <img src="https://codeforces-readme-stats.vercel.app/api/badge?username=miskatul.anwar.csecu"
-          alt="Codeforces Rating Badge for miskatul.anwar.csecu" />
-      </div>
-      <img src="https://codeforces-readme-stats.vercel.app/api/card?username=miskatul.anwar.csecu&theme=dark"
-        alt="Codeforces Stats for miskatul.anwar.csecu" />
-    </div>
-    <!-- Picoctf stats cards  -->
-    <div class="card">
-      <img src="https://img.shields.io/badge/picoCTF-ghost_freak%20Score%3A%20123-blue"
-        alt="picoCTF Stats for ghost_freak" />
+  <div class="site-wrapper">
+
+    <!-- ── Sticky Header ── -->
+    <div class="header-wrapper">
+      <header>
+        <div class="header-inner">
+          <a href="./index.html" class="logo-link">
+            <img src="./assets/icons/geass.icon" alt="Ghost's Icon" class="icon">
+          </a>
+          <nav>
+            <a href="./index.html" class="nav-active">Home</a>
+            <a href="./blog.html">Blog</a>
+            <a href="./work.html">Work</a>
+            <a href="./about.html">About</a>
+          </nav>
+        </div>
+      </header>
     </div>
 
-    <div class="card">
-      <img src="https://leetcard.jacoblin.cool/miskat666F?theme=dark&ext=heatmap" alt="LeetCode Stats for miskat666F" />
-    </div>
+    <!-- ── Main Content: Bento Grid ── -->
+    <main>
+      <section class="bento-grid">
+
+        <!-- A: Hero / About Card (wide) -->
+        <div class="bento-cell" style="grid-area: a;">
+          <div class="bento-inner hero-card">
+            <!-- Character illustration -->
+            <div class="hero-character">
+              <img src="./assets/icons/ryuzaki.png" alt="Ghost Character" class="hero-avatar" />
+            </div>
+            <!-- Text bubbles -->
+            <div class="hero-text">
+              <p class="hero-bubble">
+                Hey, I'm <strong>Miskatul Anwar</strong>! I'm a student at the
+                Department of Computer Science and Engineering,
+                University of Chittagong.
+              </p>
+              <p class="hero-bubble">
+                I also work as a research assistant at
+                <a href="https://bike-csecu.com" target="_blank" rel="noopener noreferrer"><strong>BIKE Labs
+                    CSECU</strong></a>
+                (Big Data Knowledge Engineering). You can read more
+                about me <a href="./about.html"><strong>here</strong></a>!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- B: GitHub Stats -->
+        <div class="bento-cell" style="grid-area: b;">
+          <div class="bento-inner">
+            <img
+              src="https://github-readme-stats-salesp07.vercel.app/api?username=miskatul-anwar&count_private=true&show_icons=true&theme=react&rank_icon=github&border_radius=0&bg_color=2a2723&border_color=3d382f&title_color=f2e9db&text_color=a89a85&icon_color=f2e9db"
+              alt="GitHub Readme Stats" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- C: Codeforces Card (tall) -->
+        <div class="bento-cell" style="grid-area: c;">
+          <div class="bento-inner bento-stack">
+            <span class="bento-label">Codeforces</span>
+            <img src="https://codeforces-readme-stats.vercel.app/api/badge?username=miskatul.anwar.csecu"
+              alt="Codeforces Rating Badge" loading="lazy" />
+            <img src="https://codeforces-readme-stats.vercel.app/api/card?username=miskatul.anwar.csecu&theme=dark"
+              alt="Codeforces Stats" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- D: GitHub Streak -->
+        <div class="bento-cell" style="grid-area: d;">
+          <div class="bento-inner">
+            <img
+              src="https://github-readme-streak-stats-salesp07.vercel.app/?user=miskatul-anwar&count_private=true&theme=react&border_radius=0&background=2a2723&border=3d382f&ring=f2e9db&fire=f2e9db&currStreakLabel=a89a85&sideLabels=a89a85&currStreakNum=f2e9db&sideNums=f2e9db&dates=a89a85"
+              alt="GitHub Streak Stats" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- E: LeetCode (wide) -->
+        <div class="bento-cell" style="grid-area: e;">
+          <div class="bento-inner">
+            <img src="https://leetcard.jacoblin.cool/miskat666F?theme=dark&ext=heatmap&border=0" alt="LeetCode Stats"
+              loading="lazy" />
+          </div>
+        </div>
+
+        <!-- F: Snake Contribution Graph (wide) -->
+        <div class="bento-cell" style="grid-area: f;">
+          <div class="bento-inner">
+            <img src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg"
+              alt="Snake eating contributions" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- G: picoCTF Badge -->
+        <div class="bento-cell" style="grid-area: g;">
+          <div class="bento-inner bento-centered">
+            <span class="bento-label">picoCTF</span>
+            <img href="https://play.picoctf.org/users/ghost_freak"
+              src="https://img.shields.io/badge/picoCTF-ghost__freak%20Score%3A%20123-blue?style=for-the-badge"
+              alt="picoCTF Stats" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- H: Top Languages -->
+        <div class="bento-cell" style="grid-area: h;">
+          <div class="bento-inner">
+            <img
+              src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=miskatul-anwar&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=0&bg_color=2a2723&border_color=3d382f&title_color=f2e9db&text_color=a89a85"
+              alt="Top Languages" loading="lazy" />
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer>
+      <div class="footer-inner">
+        <span>&copy; 2026 Ghost. All rights reserved.</span>
+      </div>
+    </footer>
+
   </div>
 </body>
 
