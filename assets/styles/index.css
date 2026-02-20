@@ -1,4 +1,101 @@
-* {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Root Variables (enscribe.dev palette) ── */
+:root {
+    /* --background: #1c1a17; */
+    --background: #11100e;
+    --foreground: #f2e9db;
+    --muted: #2a2723;
+    --muted-foreground: #a89a85;
+    --border: #3d382f;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ── Body ── */
+body {
+    font-family: var(--font-mono);
+    background-color: var(--background);
+    color: var(--foreground);
+    letter-spacing: -0.02em;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(28, 26, 23, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    max-width: 48rem;
+    /* ~768px, similar to max-w-3xl */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+/* ── Logo / Icon ── */
+.logo-link {
+    display: flex;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+}
+
+@media (min-width: 640px) {
+    .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+/* ── Nav ── */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+nav a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: color 0.2s ease;
+    letter-spacing: -0.02em;
+}
+
+nav a:hover {
+    color: var(--foreground);
+}
+
+/* ── Main content area (for pages using this stylesheet) ── */
+main {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    flex-grow: 1;
 }
