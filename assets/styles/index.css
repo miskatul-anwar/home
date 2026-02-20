@@ -99,3 +99,26 @@ main {
     padding: 1.5rem 1rem;
     flex-grow: 1;
 }
+
+/* ── Home Page Specific Styles ── */
+.home-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .card {
+        padding: 2rem;
+    }
+}
