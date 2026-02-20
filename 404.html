@@ -1,81 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Redirecting...</title>
-    <script>
-        /**
-         * Configuration goes here
-         */
-        // Format: https://api.github.com/repos/{owner}/{repo}/issues/
-        var GITHUB_ISSUES_LINK =
-            "https://api.github.com/repos/miskatul-anwar/home/issues/";
-        var PATH_SEGMENTS_TO_SKIP = 1;
-
-        /**
-         * DO NOT TOUCH ANYTHING BELOW THIS COMMENT UNLESS YOU KNOW WHAT YOU ARE DOING
-         */
-        function isUrl(url) {
-            // Regex from https://stackoverflow.com/a/3809435, with a modification to allow for TLDs of up to 24 characters
-            return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,24}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)+$/.test(
-                url
-            );
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 — Ghost's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <link href="./assets/styles/index.css" rel="stylesheet">
+    <style>
+        /* ── 404-specific styles ── */
+        .error-page {
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.5rem;
+            min-height: calc(100vh - 12rem);
         }
 
-        function redirect() {
-            var location = window.location;
-            var issueNumber = location.pathname.split("/")[
-                PATH_SEGMENTS_TO_SKIP + 1
-            ];
-            var homepage =
-                location.protocol +
-                "//" +
-                location.hostname +
-                (location.port ? ":" + location.port : "") +
-                "/" +
-                location.pathname.split("/")[PATH_SEGMENTS_TO_SKIP];
-
-            var xhr = new XMLHttpRequest();
-
-            xhr.onload = function () {
-                try {
-                    var payload = JSON.parse(xhr.response);
-                    var message = payload.message;
-                    var title = payload.title;
-
-                    // Workaround IE 11 lack of support for new URL()
-                    var url = document.createElement("a");
-                    url.setAttribute("href", title);
-
-                    // Invalid URLs includes invalid issue numbers, issue titles that are not URLs, and recursive destination URLs
-                    var isInvalidUrl =
-                        message === "Not Found" ||
-                        !title ||
-                        !isUrl(title) ||
-                        url.hostname === location.hostname;
-
-                    if (isInvalidUrl) {
-                        location.replace(homepage);
-                    } else {
-                        location.replace(title);
-                    }
-                } catch (e) {
-                    location.replace(homepage);
-                }
-            };
-
-            xhr.onerror = function () {
-                location.replace(homepage);
-            };
-            xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-            xhr.send();
+        .error-code {
+            font-family: var(--font-mono);
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--foreground);
+            line-height: 1;
+            letter-spacing: -0.04em;
         }
 
-        redirect();
-    </script>
+        @media (min-width: 640px) {
+            .error-code {
+                font-size: 8rem;
+            }
+        }
+
+        .error-title {
+            font-family: var(--font-mono);
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--foreground);
+            margin: 0;
+        }
+
+        .error-description {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            color: var(--muted-foreground);
+            max-width: 24rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .error-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--foreground);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--muted-foreground);
+            transition: text-decoration-color 0.2s ease;
+        }
+
+        .error-link:hover {
+            text-decoration-color: var(--foreground);
+        }
+
+        .error-link .arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .error-link:hover .arrow {
+            transform: translateX(-4px);
+        }
+
+        .error-divider {
+            width: 4rem;
+            height: 1px;
+            background-color: var(--border);
+        }
+    </style>
 </head>
 
-<body></body>
+<body>
+    <div class="site-wrapper">
+
+        <!-- ── Sticky Header ── -->
+        <div class="header-wrapper">
+            <header>
+                <div class="header-inner">
+                    <a href="./index.html" class="logo-link">
+                        <img src="./assets/icons/geass.icon" alt="Ghost's Icon" class="icon">
+                    </a>
+                    <nav>
+                        <a href="./index.html">Home</a>
+                        <a href="./blog.html">Blog</a>
+                        <a href="./work.html">Work</a>
+                        <a href="./about.html">About</a>
+                    </nav>
+                </div>
+            </header>
+        </div>
+
+        <!-- ── 404 Content ─��� -->
+        <section class="error-page">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page not found</h1>
+            <div class="error-divider"></div>
+            <p class="error-description">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            <a href="./index.html" class="error-link">
+                <span class="arrow">&larr;</span> Go to home page
+            </a>
+        </section>
+
+        <!-- ── Footer ── -->
+        <footer>
+            <div class="footer-inner">
+                <span>&copy; 2026 Ghost. All rights reserved.</span>
+            </div>
+        </footer>
+
+    </div>
+</body>
 
 </html>
